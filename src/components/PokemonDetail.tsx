@@ -7,12 +7,16 @@ interface Props {
 
 export const PokemonDetail: React.FC<Props> = ({ pokemon }) => {
   return (
-    <div className="bg-gray-700 p-4 rounded-lg">
-      <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+    <div className="bg-gray-700 p-4 rounded-lg h-full">
+      <div className="bg-gray-800 p-4 rounded-lg mb-4">
+        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+      </div>
       <h2 className="text-xl font-bold mt-2">{pokemon.name}</h2>
-      <ul>
+      <ul className="mt-4">
         {pokemon.types.map((type) => (
-          <li key={type.slot}>{type.type.name}</li>
+          <li key={type.slot} className="capitalize">
+            {type.type.name}
+          </li>
         ))}
       </ul>
     </div>
